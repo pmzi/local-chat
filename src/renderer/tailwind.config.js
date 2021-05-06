@@ -10,6 +10,12 @@ module.exports = {
         h1: defaultTheme.fontSize['6xl'],
         h2: defaultTheme.fontSize['4xl'],
       },
+      gridTemplateColumns: {
+        chat: '30rem 1fr',
+      },
+      gridTemplateRows: {
+        chat: '5rem minmax(0, 1fr) 3rem',
+      },
     },
   },
   variants: {

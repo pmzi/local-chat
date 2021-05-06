@@ -1,5 +1,6 @@
 @import '~antd/dist/antd.dark.css';
 
-@tailwind base;
+@import 'base';
+
 @tailwind components;
 @tailwind utilities;

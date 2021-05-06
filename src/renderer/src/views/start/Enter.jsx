@@ -12,7 +12,7 @@ export default function EnterChoose() {
         <p className="mb-8 text-lg">
           {strings.enter.create.DESCRIPTION}
         </p>
-        <LinkButton link={CREATE_ROUTE} type="primary">
+        <LinkButton size="large" link={CREATE_ROUTE} type="primary">
           {strings.enter.create.ACTION_TEXT}
         </LinkButton>
       </div>
@@ -23,7 +23,7 @@ export default function EnterChoose() {
         <p className="mb-8 text-lg">
           {strings.enter.join.DESCRIPTION}
         </p>
-        <LinkButton link={JOIN_ROUTE}>
+        <LinkButton size="large" link={JOIN_ROUTE}>
           {strings.enter.join.ACTION_TEXT}
         </LinkButton>
       </div>

@@ -12,8 +12,19 @@ export default {
     },
   },
   join: {
+    TITLE: 'Joining a Room!',
     DESCRIPTION: 'Please enter the address and the port of the host',
     ACTION_TEXT: 'Join!',
   },
+  create: {
+    TITLE: 'Creating a Room!',
+    DESCRIPTION: 'Please enter the port to be used',
+    ROOM_NAME: 'Room Name',
+    ROOM_NAME_PLACEHOLDER: 'Shiny Room!',
+    ACTION_TEXT: 'Create!',
+  },
+  DISPLAY_NAME: 'Display Name',
+  DISPLAY_NAME_PLACEHOLDER: 'Pouya',
+  BACK: 'Back',
   REQUIRED_ERROR: 'This field is required!',
 };

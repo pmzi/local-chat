@@ -1,8 +1,8 @@
 import strings from '@shared/constants/strings';
 import LinkButton from '@shared/components/LinkButton';
-import { JOIN_ROUTE, CREATE_ROUTE } from '@shared/constants/router';
+import { JOIN_ROUTE, CREATE_ROUTE } from '@shared/constants/routes';
 
-export default function EnterChoose() {
+export default function Enter() {
   return (
     <div className="flex h-screen">
       <div className="flex-1 flex justify-center items-center flex-col">

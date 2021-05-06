@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const ENTER_ROUTE = '/enter';
+export const JOIN_ROUTE = '/join';
+export const CREATE_ROUTE = '/create';

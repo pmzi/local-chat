@@ -18,6 +18,19 @@ module.exports = {
     'react',
   ],
   rules: {
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@shared', './src/shared'],
+          ['@services', './src/services'],
+          ['@', './src'],
+          ['@@', './src/views'],
+        ],
+        extensions: ['.js', '.jsx'],
+      },
+    },
   },
 };

@@ -1,0 +1,7 @@
+{
+  "eslint.workingDirectories": [
+      { "directory": "./src/renderer", "changeProcessCWD": true },
+  ],
+  "scss.validate": false,
+  "editor.tabSize": 2
+}

@@ -4,6 +4,7 @@ import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 
 import './stylesheets/index.scss';
+import './stylesheets/_antd.less';
 
 ReactDOM.render(
   <App />,

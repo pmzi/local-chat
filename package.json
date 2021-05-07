@@ -1,8 +1,8 @@
 {
-  "name": "app",
-  "productName": "app",
+  "name": "local-chat",
+  "productName": "local-chat",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A simple local chat",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -11,7 +11,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
-  "keywords": [],
+  "keywords": ["chat", "socket", "electronjs", "local chat", "nodejs"],
   "author": {
     "name": "Pouya",
     "email": "pouya.mozafar@gmail.com"
@@ -24,13 +24,14 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "app"
+            "name": "Local Chat"
           }
         },
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin"
+            "darwin",
+            "windows"
           ]
         },
         {

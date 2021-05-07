@@ -17,11 +17,13 @@ const createWindow = () => {
     }
   });
 
-  // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:3000');
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if(process.env.NODE_ENV === 'development') {
+    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.webContents.openDevTools();
+  } else {
+    mainWindow.loadURL(`file://${path.resolve(__dirname, './renderer/build/index.html')}`);
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 // This method will be called when Electron has finished

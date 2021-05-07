@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import strings from '@shared/constants/strings';
 import { useContext } from 'react';
 import { CHAT_PRIVATE_MESSAGE_ROUTE } from '@shared/constants/routes';
-import ChatManagerContext from '../shared/ChatManagerContext';
+import ChatManagerContext from '../shared/contexts/ChatManagerContext';
 
 export default function ChatList() {
   const { chats } = useContext(ChatManagerContext);

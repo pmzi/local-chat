@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import ChatRoomMessages from './ChatRoomMessages';
 import ChatRoomAction from './ChatRoomAction';
-import ChatManagerContext from '../../shared/ChatManagerContext';
+import ChatManagerContext from '../../shared/contexts/ChatManagerContext';
 
 export default function ChatRoom() {
   const { id = '' } = useParams();

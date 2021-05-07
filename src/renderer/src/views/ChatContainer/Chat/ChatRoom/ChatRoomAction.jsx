@@ -1,22 +1,23 @@
+import { chatRoom } from '@services/api';
 import useAsync from '@shared/hooks/useAsync';
 import { Form, Input, Button } from 'antd';
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
-import ChatManagerContext from '../../shared/ChatManagerContext';
+import useChatManagerActions from '../../shared/hooks/useChatManagerActions';
 
 export default function ChatRoomAction() {
   const [form] = Form.useForm();
   const messageBoxEl = useRef();
-  const { sendMessage } = useContext(ChatManagerContext);
-  const { execute: sendActualMessage, loading } = useAsync(sendMessage);
+  const { dispatchAddOutgoingMessage } = useChatManagerActions();
+  const { execute: sendMessage, loading } = useAsync(chatRoom.sendMessage);
   const { id = '' } = useParams();
 
   async function pushMessage({ message }) {
-    await sendActualMessage({
-      message,
-      to: id,
-    });
+    const msg = { to: id, message };
+    await sendMessage(msg);
+
+    dispatchAddOutgoingMessage(msg);
 
     form.resetFields();
 

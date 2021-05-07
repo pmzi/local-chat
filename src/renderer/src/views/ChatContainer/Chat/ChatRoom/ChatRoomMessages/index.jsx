@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import ChatManagerContext from '@/views/ChatContainer/shared/ChatManagerContext';
+import ChatManagerContext from '@/views/ChatContainer/shared/contexts/ChatManagerContext';
 import ChatRoomMessagesItemSending from './ChatRoomMessagesItemSending';
 import ChatRoomMessagesItemComing from './ChatRoomMessagesItemComing';
 

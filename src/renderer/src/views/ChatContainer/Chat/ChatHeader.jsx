@@ -1,11 +1,20 @@
 import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 
-import ChatManagerContext from '../shared/ChatManagerContext';
+import { AUTH_ROUTE } from '@shared/constants/routes';
+import { chatRoom } from '@services/api';
+import ChatManagerContext from '../shared/contexts/ChatManagerContext';
 
 export default function ChatHeader() {
+  const history = useHistory();
   const chatData = useContext(ChatManagerContext);
+
+  function leave() {
+    chatRoom.disconnect();
+    history.push(AUTH_ROUTE);
+  }
 
   return (
     <div className="flex justify-between items-center px-8 h-full">
@@ -37,7 +46,7 @@ export default function ChatHeader() {
           type="dashed"
           danger
           icon={<LogoutOutlined />}
-          onClick={chatData.leave}
+          onClick={leave}
         >
           Leave
         </Button>

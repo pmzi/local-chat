@@ -10,4 +10,6 @@ export default createContext({
     id: '',
     name: '',
   },
+  dispatch() {},
+  actionTypes: {},
 });

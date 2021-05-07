@@ -19,7 +19,7 @@ export default function Chat() {
         <ChatRouter />
       </main>
       <footer className="border-t border-layout col-span-2 flex items-center justify-center">
-        {strings.FOOTER(<ExternalLink href="https://github.com/pmzi/local-chat" className="ml-2">Github</ExternalLink>)}
+        {strings.FOOTER(<ExternalLink key={1} href="https://github.com/pmzi/local-chat" className="ml-2">Github</ExternalLink>)}
       </footer>
     </div>
   );

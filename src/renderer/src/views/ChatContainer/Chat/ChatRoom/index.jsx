@@ -17,7 +17,7 @@ export default function ChatRoom() {
       <header className="border-b border-layout h-20 flex items-center justify-center">
         {
         strings.chat.chatRoom.CHATTING_WITH(
-          <span className="text-primary ml-2">
+          <span key={1} className="text-primary ml-2">
             {currentRoomData.name}
           </span>,
         )

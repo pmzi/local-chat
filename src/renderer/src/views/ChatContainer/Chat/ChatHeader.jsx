@@ -20,7 +20,7 @@ export default function ChatHeader() {
   return (
     <div className="flex justify-between items-center px-8 h-full">
       <div className="text-4xl">
-        {strings.chat.header.GREETINGS(<span className="text-primary ml-2">{chatData.user.name}</span>)}
+        {strings.chat.header.GREETINGS(<span key={1} className="text-primary ml-2">{chatData.user.name}</span>)}
       </div>
       <div className="text-center">
         <div>

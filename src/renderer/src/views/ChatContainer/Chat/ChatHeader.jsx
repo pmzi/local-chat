@@ -5,6 +5,7 @@ import { LogoutOutlined } from '@ant-design/icons';
 
 import { AUTH_ROUTE } from '@shared/constants/routes';
 import { chatRoom } from '@services/api';
+import strings from '@shared/constants/strings';
 import ChatManagerContext from '../shared/contexts/ChatManagerContext';
 
 export default function ChatHeader() {
@@ -19,22 +20,15 @@ export default function ChatHeader() {
   return (
     <div className="flex justify-between items-center px-8 h-full">
       <div className="text-4xl">
-        Welcome
-        {' '}
-        <span className="text-primary">{chatData.user.name}</span>
-        !
+        {strings.chat.header.GREETINGS(<span className="text-primary ml-2">{chatData.user.name}</span>)}
       </div>
-      <div>
+      <div className="text-center">
         <div>
-          Room Name:
-          {' '}
           <span className="text-primary">
             {chatData.server.name}
           </span>
         </div>
         <div>
-          Room Address:
-          {' '}
           <span className="text-primary">
             {chatData.server.address}
           </span>

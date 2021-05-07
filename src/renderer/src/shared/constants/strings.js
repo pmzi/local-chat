@@ -28,6 +28,13 @@ export default {
       TITLE: 'Room List',
       GLOBAL_ROOM: 'Global Room',
     },
+    header: {
+      GREETINGS: (name) => ['Welcome', name, '!'],
+    },
+    chatRoom: {
+      SEND: 'Send',
+      CHATTING_WITH: (name) => ['Chatting with', name],
+    },
   },
   DISPLAY_NAME: 'Display Name',
   DISPLAY_NAME_PLACEHOLDER: 'Pouya',

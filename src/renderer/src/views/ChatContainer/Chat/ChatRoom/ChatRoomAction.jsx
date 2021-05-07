@@ -1,4 +1,5 @@
 import { chatRoom } from '@services/api';
+import strings from '@shared/constants/strings';
 import useAsync from '@shared/hooks/useAsync';
 import { Form, Input, Button } from 'antd';
 import { useRef } from 'react';
@@ -35,7 +36,7 @@ export default function ChatRoomAction() {
         <Input ref={messageBoxEl} size="large" placeholder="Any messages...!" />
       </Form.Item>
       <Form.Item className="mr-0">
-        <Button loading={loading} size="large" htmlType="submit">Send</Button>
+        <Button loading={loading} size="large" htmlType="submit">{strings.chat.chatRoom.SEND}</Button>
       </Form.Item>
     </Form>
   );

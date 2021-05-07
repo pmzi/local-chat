@@ -17,6 +17,9 @@ export default {
       ws.once('properties', resolve);
     });
   },
+  disconnect() {
+    ws.emit('leave');
+  },
   listenForMessages(cb) {
     ws.on('message', cb);
   },

@@ -21,7 +21,6 @@ export default {
     socket.once(event, cb);
   },
   emit(event, data, cb) {
-    console.log(socket);
     socket.emit(event, data, cb);
   },
 };

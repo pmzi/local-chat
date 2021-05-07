@@ -20,8 +20,6 @@ module.exports = {
     const users = new Set();
 
     io.on('connection', (client) => {
-      console.log('New Connection!');
-
       const otherUsers = new Set(users);
 
       const user = {
@@ -45,10 +43,12 @@ module.exports = {
         io.emit(USER_LEFT_EVENT, user);
       });
 
+      client.on('leave', () => {
+        client.disconnect();
+      });
+
       io.emit(NEW_USER_EVENT, user);
     });
-
-    console.log('CALLED');
 
     httpServer.listen(port);
   },

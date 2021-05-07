@@ -1,7 +1,9 @@
-import { chatRoom } from '@services/api';
-import useAsync from '@shared/hooks/useAsync';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
+import { chatRoom } from '@services/api';
+import { AUTH_ROUTE } from '@shared/constants/routes';
+import useAsync from '@shared/hooks/useAsync';
 import Chat from './Chat';
 import ChatManagerContext from './shared/ChatManagerContext';
 
@@ -13,6 +15,7 @@ const globalRoom = {
 };
 
 export default function ChatContainer() {
+  const history = useHistory();
   const [server, setServer] = useState({ name: '', address: '' });
   const [user, setUser] = useState({ name: '', id: '' });
   const [chats, setChats] = useState({
@@ -79,7 +82,6 @@ export default function ChatContainer() {
   }
 
   function removeUser({ id }) {
-    console.log(id, chats);
     const newChats = { ...chats };
     delete newChats[id];
     setChats(newChats);
@@ -88,6 +90,11 @@ export default function ChatContainer() {
   async function sendMessage({ to, message }) {
     await chatRoom.sendMessage({ to, message });
     addOutgoingMessage({ to, message });
+  }
+
+  function leave() {
+    chatRoom.disconnect();
+    history.push(AUTH_ROUTE);
   }
 
   useEffect(() => {
@@ -109,6 +116,7 @@ export default function ChatContainer() {
       user,
 
       sendMessage,
+      leave,
     }}
     >
       <Chat />

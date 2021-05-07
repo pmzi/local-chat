@@ -1,13 +1,24 @@
+import { useState } from 'react';
 import { Button, Input, Form } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 import strings from '@shared/constants/strings';
 import { required } from '@shared/utilities/form-validation';
 import LinkButton from '@shared/components/LinkButton';
-import { AUTH_ROUTE } from '@shared/constants/routes';
+import { AUTH_ROUTE, CHAT_GLOBAL_ROOM_ROUTE } from '@shared/constants/routes';
+import { chatRoom } from '@services/api';
 
 export default function Create() {
-  function onFinish(vals) {
-    console.log(vals);
+  const history = useHistory();
+  const [loading, setLoading] = useState(false);
+
+  async function onFinish({ name, port, displayName }) {
+    setLoading(true);
+    await chatRoom.createServer({ name, port });
+    await chatRoom.joinServer({ address: `127.0.0.1:${port}`, name: displayName });
+    setLoading(false);
+
+    history.push(CHAT_GLOBAL_ROOM_ROUTE);
   }
 
   return (
@@ -46,7 +57,7 @@ export default function Create() {
               <LinkButton size="large" type="text" link={AUTH_ROUTE}>
                 {strings.BACK}
               </LinkButton>
-              <Button size="large" type="primary" htmlType="submit">
+              <Button loading={loading} size="large" type="primary" htmlType="submit">
                 {strings.create.ACTION_TEXT}
               </Button>
             </div>

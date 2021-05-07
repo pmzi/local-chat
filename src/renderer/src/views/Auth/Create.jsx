@@ -15,7 +15,7 @@ export default function Create() {
   async function onFinish({ name, port, displayName }) {
     setLoading(true);
     await chatRoom.createServer({ name, port });
-    await chatRoom.joinServer({ address: `127.0.0.1:${port}`, name: displayName });
+    await chatRoom.joinServer({ address: `http://127.0.0.1:${port}`, name: displayName });
     setLoading(false);
 
     history.push(chatGlobalRoomRoute.URL);

@@ -7,11 +7,18 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
+    "make:win": "electron-forge make --platform win32",
+    "make:mac": "electron-forge make --platform darwin",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
-  "keywords": ["chat", "socket", "electronjs", "local chat", "nodejs"],
+  "keywords": [
+    "chat",
+    "socket",
+    "electronjs",
+    "local chat",
+    "nodejs"
+  ],
   "author": {
     "name": "Pouya",
     "email": "pouya.mozafar@gmail.com"
@@ -31,7 +38,7 @@
           "name": "@electron-forge/maker-zip",
           "platforms": [
             "darwin",
-            "windows"
+            "win32"
           ]
         },
         {
@@ -57,6 +64,7 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^12.0.6",
+    "electron-is-dev": "^2.0.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"

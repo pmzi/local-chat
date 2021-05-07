@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const isDev = require("electron-is-dev");
 const path = require('path');
 const main = require('./main');
 
@@ -17,12 +18,11 @@ const createWindow = () => {
     }
   });
 
-  if(process.env.NODE_ENV === 'development') {
+  if(isDev) {
     mainWindow.loadURL('http://localhost:3000');
     mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadURL(`file://${path.resolve(__dirname, './renderer/build/index.html')}`);
-    mainWindow.webContents.openDevTools();
   }
 };
 

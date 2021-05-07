@@ -17,7 +17,11 @@ export default {
   on(event, cb) {
     socket.on(event, cb);
   },
+  once(event, cb) {
+    socket.once(event, cb);
+  },
   emit(event, data, cb) {
+    console.log(socket);
     socket.emit(event, data, cb);
   },
 };

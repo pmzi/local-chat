@@ -1,38 +1,15 @@
 import { useParams } from 'react-router-dom';
 
+import { useContext } from 'react';
 import ChatRoomMessages from './ChatRoomMessages';
 import ChatRoomAction from './ChatRoomAction';
-
-const messages = [
-  {
-    id: 1,
-    message: 'Hi From Another',
-    me: false,
-  },
-  {
-    id: 2,
-    message: 'Hi From Another',
-    me: false,
-  },
-  {
-    id: 3,
-    message: 'Hi From Me',
-    me: true,
-  },
-  {
-    id: 4,
-    message: 'Hi From Another',
-    me: false,
-  },
-  {
-    id: 5,
-    message: 'Hi From Me',
-    me: true,
-  },
-];
+import ChatManagerContext from '../../shared/ChatManagerContext';
 
 export default function ChatRoom() {
   const { id = '' } = useParams();
+  const chatData = useContext(ChatManagerContext);
+
+  const currentRoomData = chatData.chats[id];
 
   return (
     <div className="flex flex-col h-full">
@@ -40,12 +17,12 @@ export default function ChatRoom() {
         Chatting with
         {' '}
         <span className="text-primary ml-2">
-          {id || 'global'}
+          {currentRoomData.name}
         </span>
         !
       </header>
       <div className="flex-1 overflow-hidden">
-        <ChatRoomMessages messages={messages} />
+        <ChatRoomMessages messages={currentRoomData.messages} />
       </div>
       <div>
         <ChatRoomAction />

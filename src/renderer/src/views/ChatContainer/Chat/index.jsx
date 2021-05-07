@@ -1,13 +1,21 @@
+import { useContext } from 'react';
+
 import ExternalLink from '@shared/components/ExternalLink';
 import strings from '@shared/constants/strings';
 import ChatRouter from './ChatRouter';
 import ChatList from './ChatList';
+import ChatManagerContext from '../shared/ChatManagerContext';
 
 export default function Chat() {
+  const chatData = useContext(ChatManagerContext);
+
   return (
     <div className="grid grid-cols-chat grid-rows-chat h-screen">
       <header className="col-span-2 flex justify-center items-center border-b border-layout">
-        Pouya&apos;s Room(192.168.1.1:8080)
+        {chatData.server.name}
+        &apos;s Room(
+        {chatData.server.address}
+        )
       </header>
       <aside className="border-r border-layout">
         <ChatList />

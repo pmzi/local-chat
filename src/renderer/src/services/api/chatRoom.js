@@ -7,13 +7,23 @@ export default {
   joinServer({ address, name }) {
     return ws.connect(address, { name });
   },
-  sendMessage({ toId, message }) {
-    return Promise.resolve(ws.emit('message', { toId, message }));
+  sendMessage({ to, message }) {
+    return Promise.resolve(ws.emit('message', { to, message }));
+  },
+  getRoomProperties() {
+    return new Promise((resolve) => {
+      ws.emit('properties');
+
+      ws.once('properties', resolve);
+    });
   },
   listenForMessages(cb) {
     ws.on('message', cb);
   },
   listenForNewUser(cb) {
     ws.on('newUser', cb);
+  },
+  listenForUserLeft(cb) {
+    ws.on('userLeft', cb);
   },
 };

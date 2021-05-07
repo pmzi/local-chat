@@ -1,23 +1,16 @@
 import { Link } from 'react-router-dom';
 
-import { CHAT_GLOBAL_ROOM_ROUTE, CHAT_PRIVATE_MESSAGE_ROUTE } from '@shared/constants/routes';
 import strings from '@shared/constants/strings';
-
-const rooms = [
-  {
-    name: strings.chat.list.GLOBAL_ROOM,
-    to: CHAT_GLOBAL_ROOM_ROUTE,
-  },
-  {
-    name: strings.chat.list.GLOBAL_ROOM,
-    to: CHAT_PRIVATE_MESSAGE_ROUTE(12),
-  },
-];
+import { useContext } from 'react';
+import { CHAT_PRIVATE_MESSAGE_ROUTE } from '@shared/constants/routes';
+import ChatManagerContext from '../shared/ChatManagerContext';
 
 export default function ChatList() {
-  const roomsElements = rooms.map(({ name, to }) => (
-    <li key={to} className="min-h-16 flex text-2xl mb-4 last:mb-0">
-      <Link to={to} className="border-l-4 border-primary px-10 w-full flex items-center">
+  const { chats } = useContext(ChatManagerContext);
+
+  const roomsElements = Object.entries(chats).map(([id, { name }]) => (
+    <li key={id} className="min-h-16 flex text-2xl mb-4 last:mb-0">
+      <Link to={CHAT_PRIVATE_MESSAGE_ROUTE(id)} className="border-l-4 border-primary px-10 w-full flex items-center">
         {name}
       </Link>
     </li>

@@ -11,7 +11,6 @@ export default function ChatRoomMessages({ messages }) {
 
   const messagesElements = messages.map(({ message, from }) => {
     const id = Date.now();
-    console.log(from, user);
     if (from === user.id) {
       return <ChatRoomMessagesItemSending key={id} message={message} />;
     }
@@ -22,7 +21,7 @@ export default function ChatRoomMessages({ messages }) {
   useEffect(() => {
     const scrollTop = containerElement.current.scrollHeight - containerElement.current.clientHeight;
     containerElement.current.scrollTop = scrollTop;
-  }, []);
+  }, [messages]);
 
   return (
     <div className="overflow-auto h-full" ref={containerElement}>

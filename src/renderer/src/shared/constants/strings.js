@@ -23,8 +23,15 @@ export default {
     ROOM_NAME_PLACEHOLDER: 'Shiny Room!',
     ACTION_TEXT: 'Create!',
   },
+  chat: {
+    list: {
+      TITLE: 'Room List',
+      GLOBAL_ROOM: 'Global Room',
+    },
+  },
   DISPLAY_NAME: 'Display Name',
   DISPLAY_NAME_PLACEHOLDER: 'Pouya',
   BACK: 'Back',
   REQUIRED_ERROR: 'This field is required!',
+  FOOTER: (link) => ['Fork me on', link, '!'],
 };

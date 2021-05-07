@@ -6,7 +6,7 @@ export default function Enter() {
   return (
     <div className="flex h-screen">
       <div className="flex-1 flex justify-center items-center flex-col">
-        <h2 className="mb-16 text-h2">
+        <h2 className="mb-16">
           {strings.enter.create.TITLE}
         </h2>
         <p className="mb-8 text-lg">
@@ -17,7 +17,7 @@ export default function Enter() {
         </LinkButton>
       </div>
       <div className="border-l border-gray-800 flex-1 flex justify-center items-center flex-col">
-        <h2 className="mb-16 text-h2">
+        <h2 className="mb-16">
           {strings.enter.join.TITLE}
         </h2>
         <p className="mb-8 text-lg">

@@ -13,7 +13,7 @@ export default function Join() {
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="flex flex-col">
-        <h1 className="text-h1 mb-16">
+        <h1 className="mb-16">
           {strings.join.TITLE}
         </h1>
         <Form

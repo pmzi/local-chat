@@ -11,6 +11,9 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
+    webPreferences: {
+      preload: path.resolve(__dirname, './renderer/preload.js'),
+    }
   });
 
   // and load the index.html of the app.

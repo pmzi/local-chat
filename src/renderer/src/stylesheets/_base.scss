@@ -5,4 +5,32 @@
   body {
     font-size: 1.6rem;
   }
+
+  h1 {
+    @apply text-6xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+
+  a {
+    @apply text-primary-light;
+  }
+  a:hover {
+    @apply text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-4;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
 }
+
+@tailwind base;

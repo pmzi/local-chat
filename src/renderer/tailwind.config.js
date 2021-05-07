@@ -23,7 +23,7 @@ module.exports = {
         secondary: defaultTheme.colors.gray[700],
       },
       borderColor: (theme) => ({
-        layout: theme('colors.gray.900'),
+        layout: theme('colors.gray.800'),
       }),
     },
   },

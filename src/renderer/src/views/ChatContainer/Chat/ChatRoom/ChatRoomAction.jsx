@@ -1,11 +1,12 @@
 import { Form, Input, Button } from 'antd';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ChatManagerContext from '../../shared/ChatManagerContext';
 
 export default function ChatRoomAction() {
   const [form] = Form.useForm();
+  const messageBoxEl = useRef();
   const { sendMessage } = useContext(ChatManagerContext);
   const { id = '' } = useParams();
 
@@ -16,6 +17,8 @@ export default function ChatRoomAction() {
     });
 
     form.resetFields();
+
+    messageBoxEl.current.focus();
   }
 
   return (
@@ -26,7 +29,7 @@ export default function ChatRoomAction() {
       form={form}
     >
       <Form.Item name="message" className="flex-1 mr-0">
-        <Input size="large" placeholder="Any messages...!" />
+        <Input ref={messageBoxEl} size="large" placeholder="Any messages...!" />
       </Form.Item>
       <Form.Item className="mr-0">
         <Button size="large" htmlType="submit">Send</Button>

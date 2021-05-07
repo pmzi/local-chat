@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
 import { chatRoom } from '@services/api';
+import playSound from '@shared/utilities/playSound';
+import { newMessageAudio } from '@shared/constants/files';
 import Chat from './Chat';
 import ChatManagerContext from './shared/contexts/ChatManagerContext';
 import useChatManagerStore, {
@@ -20,7 +22,11 @@ export default function ChatContainer() {
 
     chatRoom.listenForNewUser((user) => dispatchAddNewUser(dispatch, user));
     chatRoom.listenForUserLeft((user) => dispatchRemoveUser(dispatch, user));
-    chatRoom.listenForMessages((msg) => dispatchAddIncomingMessage(dispatch, msg));
+    chatRoom.listenForMessages((msg) => {
+      playSound(newMessageAudio);
+
+      dispatchAddIncomingMessage(dispatch, msg);
+    });
   }, []);
 
   return (

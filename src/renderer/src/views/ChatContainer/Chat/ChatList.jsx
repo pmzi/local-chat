@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import strings from '@shared/constants/strings';
 import { useContext } from 'react';
@@ -10,9 +10,9 @@ export default function ChatList() {
 
   const roomsElements = Object.entries(chats).map(([id, { name }]) => (
     <li key={id} className="min-h-16 flex text-2xl mb-4 last:mb-0">
-      <Link to={CHAT_PRIVATE_MESSAGE_ROUTE(id)} className="border-l-4 border-primary px-10 w-full flex items-center">
+      <NavLink activeClassName="border-l-4 border-primary" exact to={CHAT_PRIVATE_MESSAGE_ROUTE(id)} className="px-10 w-full flex items-center">
         {name}
-      </Link>
+      </NavLink>
     </li>
   ));
 

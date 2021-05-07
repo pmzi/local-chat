@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { ipcMain } = require('electron');
-const socket = require('./socket');
+const createSocketServer = require('./createSocketServer');
 
 module.exports = function start() {
   ipcMain.on('createServer', (event, { port = 8080, name = 'Awesome Room' }) => {
-    socket.createServer({ port, name });
+    createSocketServer({ port, name });
   });
 };

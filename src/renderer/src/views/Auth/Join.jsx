@@ -14,7 +14,7 @@ export default function Join() {
 
   async function onFinish({ address, displayName }) {
     setLoading(true);
-    await chatRoom.joinServer({ address, name: displayName });
+    await chatRoom.joinServer({ address: `http://${address}`, name: displayName });
     setLoading(false);
 
     history.push(chatGlobalRoomRoute.URL);

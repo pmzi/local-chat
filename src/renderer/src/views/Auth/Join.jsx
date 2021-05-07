@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import strings from '@shared/constants/strings';
 import { required } from '@shared/utilities/form-validation';
-import { AUTH_ROUTE, CHAT_GLOBAL_ROOM_ROUTE } from '@shared/constants/routes';
+import { authRoute, chatGlobalRoomRoute } from '@shared/constants/routes';
 import LinkButton from '@shared/components/LinkButton';
 import { chatRoom } from '@services/api';
 
@@ -17,7 +17,7 @@ export default function Join() {
     await chatRoom.joinServer({ address, name: displayName });
     setLoading(false);
 
-    history.push(CHAT_GLOBAL_ROOM_ROUTE);
+    history.push(chatGlobalRoomRoute.URL);
   }
 
   return (
@@ -46,7 +46,7 @@ export default function Join() {
           </Form.Item>
           <Form.Item className="text-center">
             <div className="flex justify-between">
-              <LinkButton size="large" type="text" link={AUTH_ROUTE}>
+              <LinkButton size="large" type="text" link={authRoute.URL}>
                 {strings.BACK}
               </LinkButton>
               <Button loading={loading} size="large" type="primary" htmlType="submit">

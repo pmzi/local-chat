@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidV4 } from 'uuid';
 
 import ChatManagerContext from '@/views/ChatContainer/shared/contexts/ChatManagerContext';
 import ChatRoomMessagesItemSending from './ChatRoomMessagesItemSending';
@@ -10,7 +11,7 @@ export default function ChatRoomMessages({ messages }) {
   const { user } = useContext(ChatManagerContext);
 
   const messagesElements = messages.map(({ message, from }) => {
-    const id = Date.now();
+    const id = uuidV4();
     if (from === user.id) {
       return <ChatRoomMessagesItemSending key={id} message={message} />;
     }

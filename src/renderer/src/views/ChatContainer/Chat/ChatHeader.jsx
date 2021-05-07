@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 
-import { AUTH_ROUTE } from '@shared/constants/routes';
+import { authRoute } from '@shared/constants/routes';
 import { chatRoom } from '@services/api';
 import strings from '@shared/constants/strings';
 import ChatManagerContext from '../shared/contexts/ChatManagerContext';
@@ -14,7 +14,7 @@ export default function ChatHeader() {
 
   function leave() {
     chatRoom.disconnect();
-    history.push(AUTH_ROUTE);
+    history.push(authRoute.URL);
   }
 
   return (

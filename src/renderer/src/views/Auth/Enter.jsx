@@ -1,6 +1,6 @@
 import strings from '@shared/constants/strings';
 import LinkButton from '@shared/components/LinkButton';
-import { JOIN_ROUTE, CREATE_ROUTE } from '@shared/constants/routes';
+import { createRoute, joinRoute } from '@shared/constants/routes';
 
 export default function Enter() {
   return (
@@ -12,7 +12,7 @@ export default function Enter() {
         <p className="mb-8 text-lg">
           {strings.enter.create.DESCRIPTION}
         </p>
-        <LinkButton size="large" link={CREATE_ROUTE} type="primary">
+        <LinkButton size="large" link={createRoute.URL} type="primary">
           {strings.enter.create.ACTION_TEXT}
         </LinkButton>
       </div>
@@ -23,7 +23,7 @@ export default function Enter() {
         <p className="mb-8 text-lg">
           {strings.enter.join.DESCRIPTION}
         </p>
-        <LinkButton size="large" link={JOIN_ROUTE}>
+        <LinkButton size="large" link={joinRoute.URL}>
           {strings.enter.join.ACTION_TEXT}
         </LinkButton>
       </div>

@@ -3,7 +3,7 @@ import {
 } from 'react-router-dom';
 
 import {
-  AUTH_ROUTE, CHAT_GLOBAL_ROOM_ROUTE, JOIN_ROUTE, CREATE_ROUTE,
+  authRoute, chatGlobalRoomRoute, createRoute, joinRoute,
 } from '@shared/constants/routes';
 import ChatContainer from './ChatContainer';
 import Enter from './auth/Enter';
@@ -13,11 +13,11 @@ import Create from './auth/Create';
 export default function Router() {
   return (
     <Switch>
-      <Route exact path={AUTH_ROUTE} component={Enter} />
-      <Route exact path={JOIN_ROUTE} component={Join} />
-      <Route exact path={CREATE_ROUTE} component={Create} />
-      <Route path={CHAT_GLOBAL_ROOM_ROUTE} component={ChatContainer} />
-      <Redirect to={AUTH_ROUTE} />
+      <Route exact path={authRoute.URL} component={Enter} />
+      <Route exact path={joinRoute.URL} component={Join} />
+      <Route exact path={createRoute.URL} component={Create} />
+      <Route path={chatGlobalRoomRoute.URL} component={ChatContainer} />
+      <Redirect to={authRoute.URL} />
     </Switch>
   );
 }

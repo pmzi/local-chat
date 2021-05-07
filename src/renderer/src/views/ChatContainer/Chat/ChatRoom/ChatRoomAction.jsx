@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import ChatManagerContext from '../../shared/ChatManagerContext';
 
 export default function ChatRoomAction() {
+  const [form] = Form.useForm();
   const { sendMessage } = useContext(ChatManagerContext);
   const { id = '' } = useParams();
 
@@ -13,6 +14,8 @@ export default function ChatRoomAction() {
       message,
       to: id,
     });
+
+    form.resetFields();
   }
 
   return (
@@ -20,6 +23,7 @@ export default function ChatRoomAction() {
       layout="inline"
       className="flex"
       onFinish={pushMessage}
+      form={form}
     >
       <Form.Item name="message" className="flex-1 mr-0">
         <Input size="large" placeholder="Any messages...!" />

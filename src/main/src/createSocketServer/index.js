@@ -11,7 +11,9 @@ module.exports = function createSocketServer({ name, port }) {
     },
   });
 
-  io.on('connection', handleConnection({ name, port, io }));
+  io.on('connection', handleConnection({
+    name, port, io, httpServer,
+  }));
 
   httpServer.listen(port);
 };

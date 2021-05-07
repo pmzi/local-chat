@@ -4,7 +4,9 @@ const {
   PROPERTIES_EVENT, MESSAGE_EVENT, NEW_USER_EVENT, USER_LEFT_EVENT,
 } = require('./shared/constants/socketEvents');
 
-module.exports = function handleConnection({ name, port, io }) {
+module.exports = function handleConnection({
+  name, port, io, httpServer,
+}) {
   const address = ip.address();
 
   const users = new Set();
@@ -31,6 +33,8 @@ module.exports = function handleConnection({ name, port, io }) {
     client.on('disconnect', () => {
       users.delete(user);
       io.emit(USER_LEFT_EVENT, user);
+
+      if (!users.size) httpServer.close();
     });
 
     client.on('leave', () => {

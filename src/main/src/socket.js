@@ -37,7 +37,7 @@ module.exports = {
 
       client.on(MESSAGE_EVENT, ({ to = '', message }) => {
         if (to) client.to(to).emit(MESSAGE_EVENT, { from: client.id, message });
-        else io.emit(MESSAGE_EVENT, { from: '', message });
+        else client.broadcast.emit(MESSAGE_EVENT, { from: '', message });
       });
 
       client.on('disconnect', () => {

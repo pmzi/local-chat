@@ -1,3 +1,4 @@
+import useAsync from '@shared/hooks/useAsync';
 import { Form, Input, Button } from 'antd';
 import { useContext, useRef } from 'react';
 import { useParams } from 'react-router-dom';
@@ -8,10 +9,11 @@ export default function ChatRoomAction() {
   const [form] = Form.useForm();
   const messageBoxEl = useRef();
   const { sendMessage } = useContext(ChatManagerContext);
+  const { execute: sendActualMessage, loading } = useAsync(sendMessage);
   const { id = '' } = useParams();
 
-  function pushMessage({ message }) {
-    sendMessage({
+  async function pushMessage({ message }) {
+    await sendActualMessage({
       message,
       to: id,
     });
@@ -32,7 +34,7 @@ export default function ChatRoomAction() {
         <Input ref={messageBoxEl} size="large" placeholder="Any messages...!" />
       </Form.Item>
       <Form.Item className="mr-0">
-        <Button size="large" htmlType="submit">Send</Button>
+        <Button loading={loading} size="large" htmlType="submit">Send</Button>
       </Form.Item>
     </Form>
   );

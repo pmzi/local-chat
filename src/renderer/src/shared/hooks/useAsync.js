@@ -5,8 +5,8 @@ export default function useAsync(fn, { init = false } = {}) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  function cbFn() {
-    return fn().then((resData) => {
+  function cbFn(...args) {
+    return fn(...args).then((resData) => {
       setData(resData);
       return resData;
     }).catch((err) => {
